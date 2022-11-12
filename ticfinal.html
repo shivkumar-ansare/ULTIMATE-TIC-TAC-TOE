@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <title>Tic tac toe</title>
+</head>
+
+<body>
+    <div class="start_overlay">
+        <div class="start_gif"></div>
+        <div class="btn-restart" onClick="Start()"><i class="fa fa-play" aria-hidden="true"></i> Start</div>
+    </div>
+    <div class="controls">
+        <div class="btn-restart" onClick="window.location.reload();"><i class="fa fa-repeat" aria-hidden="true"></i> Restart</div>
+        <div class="btn-restart" onClick="MusicToggle()"><i class="fa fa-music" aria-hidden="true"></i> Music</div>
+    </div>
+    <div class="screen_freezer"></div>
+    <div class="win_overlay">
+        <div class="win_emote"></div>
+        <div class="win_title"></div>
+        <div class="win_gif"></div>
+        <div class="win_player_name"></div>
+        <div class="btn-restart" onClick="window.location.reload();"><i class="fa fa-repeat" aria-hidden="true"></i> Restart</div>
+    </div>
+    <div class="player_names">
+        <div class="side side_1">
+            <div class="player player_1">PLAYER 1</div>
+        </div>
+        <div class="side side_2 filter_50">
+            <div class="player player_2 ">PLAYER 2</div>
+        </div>
+    </div>
+    <div class="board">
+        <div class="board_flex">
+            <div class="parent">
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(0)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(1)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(2)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(3)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(4)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(5)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(6)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(7)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(8)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(9)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(10)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(11)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(12)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(13)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(14)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(15)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(16)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(17)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(18)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(19)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(20)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(21)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(22)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(23)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(24)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(25)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(26)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(27)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(28)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(29)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(30)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(31)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(32)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(33)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(34)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(35)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(36)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(37)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(38)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(39)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(40)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(41)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(42)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(43)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(44)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(45)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(46)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(47)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(48)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(49)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(50)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(51)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(52)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(53)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(54)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(55)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(56)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(57)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(58)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(59)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(60)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(61)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(62)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(63)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(64)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(65)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(66)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(67)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(68)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(69)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(70)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(71)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent">
+
+                <div class="parent_flex">
+                    <div class="parent_win_cont">
+                        <div class="p_mark">
+                            <div class="p_ic"></div>
+                        </div>
+                        <div class="p_mark">
+                            <div class="p_cross p_cross1"></div>
+                            <div class="p_cross p_cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(72)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(73)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(74)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(75)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(76)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(77)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(78)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(79)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                    <div class="child" onclick="mark(80)">
+                        <div class="mark">
+                            <div class="ic"></div>
+                        </div>
+                        <div class="mark">
+                            <div class="cross cross1"></div>
+                            <div class="cross cross2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        transition: 200ms linear;
+    }
+    
+    body {
+        background: #212121;
+        text-align: center;
+        font-family: 'Patrick Hand SC', cursive;
+    }
+    
+    .start_overlay {
+        position: absolute;
+        z-index: 100;
+        background-color: #e7e4e2;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: #111111 0px 0px 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .start_gif {
+        height: 260px;
+        width: 400px;
+        background: url('gif/start.gif'), #000;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        filter: brightness(80%) saturate(150%) contrast(150%);
+        border-radius: 6px;
+        margin-bottom: 24px;
+    }
+    
+    .win_player_name {
+        font-size: 3em;
+        font-weight: 900;
+        margin-bottom: 40px;
+    }
+    
+    .win_emote {
+        height: 50px;
+        width: 70px;
+        background: url("gif/happy_emoji.gif");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+    
+    .win_title {
+        font-size: 3em;
+        font-family: 'Gochi Hand', cursive;
+        margin-bottom: 0.3em;
+    }
+    
+    .screen_freezer {
+        height: 100vh;
+        width: 100vw;
+        z-index: 50;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #111111ee;
+    }
+    
+    .win_gif {
+        height: 260px;
+        width: 400px;
+        background: url('gif/end1.gif'), rgb(160, 3, 3);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        filter: brightness(80%) saturate(150%) contrast(150%);
+        border-radius: 6px;
+    }
+    
+    .win_overlay {
+        position: absolute;
+        z-index: 100;
+        background-color: #e7e4e2;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: #111111 0px 0px 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+    }
+    
+    .controls {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 5px;
+    }
+    
+    .btn-restart {
+        background: #15ab2b;
+        color: white;
+        padding: 0.2em 0.6em;
+        margin: 0 0.3em;
+        font-size: 1.4em;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 6px;
+        border-bottom: 4px solid #0e691c;
+        transition: 200ms linear;
+    }
+    
+    .side {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 350px;
+        z-index: -10;
+        overflow: hidden;
+    }
+    
+    .side_1 {
+        left: 0;
+        background: url("gif/dp_player1.jpg"), #5d14db;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: #111111 0px 5px 15px;
+    }
+    
+    .side_2 {
+        right: 0;
+        background: url("gif/dp_player2.jpg"), #f2d00a;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: #111111 0px -5px 15px;
+    }
+    
+    .player {
+        font-size: 3em;
+        font-weight: 900;
+        color: #fff;
+        width: 101%;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        box-shadow: #000 0px -5px 10px;
+    }
+    
+    .player_1 {
+        background-color: #5d14db;
+    }
+    
+    .player_2 {
+        background-color: #f2d00a;
+        color: #212121;
+    }
+    
+    .board {
+        position: absolute;
+        height: 520px;
+        width: 520px;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        margin-top: -260px;
+        margin-left: -260px;
+    }
+    
+    .board_flex {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .parent {
+        height: 160px;
+        width: 160px;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+    
+    .parent_win_cont {
+        display: none;
+        background: #313131;
+        height: 160px;
+        width: 160px;
+        position: absolute;
+        z-index: 5;
+    }
+    
+    .p_mark {
+        height: 128px;
+        width: 128px;
+        display: inline-block;
+        transform: translateY(16px);
+        display: none;
+    }
+    
+    .p_ic {
+        height: 96px;
+        width: 96px;
+        border: 16px solid #c3a0ff;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: inset #5d14db 0px 0px 48px, #5d14db 0px 0px 48px;
+    }
+    
+    .p_cross {
+        display: inline-block;
+        width: 16px;
+        height: 147px;
+        background-color: #efdd76;
+        border-radius: 16px;
+        box-shadow: #f2d00a 0px 0px 48px;
+        position: absolute;
+    }
+    
+    .p_cross1 {
+        transform: rotateZ(45deg) translate(-13px, 0px);
+    }
+    
+    .p_cross2 {
+        transform: rotateZ(-45deg) translate(0px, -13px);
+    }
+    
+    .parent_flex {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .child {
+        background: #313131;
+        height: 50px;
+        width: 50px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+    
+    .mark {
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        transform: translateY(5px);
+        display: none;
+    }
+    
+    .ic {
+        height: 30px;
+        width: 30px;
+        border: 5px solid #c3a0ff;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: inset #5d14db 0px 0px 15px, #5d14db 0px 0px 15px;
+    }
+    
+    .cross {
+        display: inline-block;
+        width: 5px;
+        height: 46px;
+        background-color: #efdd76;
+        border-radius: 5px;
+        box-shadow: #f2d00a 0px 0px 15px;
+        position: absolute;
+    }
+    
+    .cross1 {
+        transform: rotateZ(45deg) translate(-4px, 0px);
+    }
+    
+    .cross2 {
+        transform: rotateZ(-45deg) translate(0px, -4px);
+    }
+    
+    .display-ib {
+        display: inline-block;
+    }
+    
+    .bg_grey {
+        background: #777777;
+    }
+    
+    .filter_50 {
+        filter: brightness(30%);
+    }
+</style>
+<script>
+    var audio = new Audio("audio/bluebird.mp3");
+    var muteToggle = true;
+    var tick = new Audio("audio/tick.mp3");
+    var bell1 = new Audio("audio/bell1.mp3");
+    var end_paths = ['naruto2.gif', 'naruto3.gif', 'naruto4.gif', 'sasuke1.gif', 'sasuke3.gif', 'sasuke4.gif']
+    var parents = document.getElementsByClassName('parent');
+    var childs = document.getElementsByClassName('child');
+    var marks = document.getElementsByClassName('mark');
+    var side = document.getElementsByClassName('side');
+    var parent_win = document.getElementsByClassName('parent_win_cont');
+    var p_mark = document.getElementsByClassName('p_mark');
+    var flag = true;
+    var c_flag = [];
+    var total_moves = 0;
+    var activeParents = ['all'];
+    var completedParents = [];
+    var i;
+
+    for (i = 0; i < 81; i++) {
+        c_flag[i] = null
+    }
+    for (i = 0; i < 9; i++) {
+        completedParents[i] = null
+    }
+
+    function freeze_screen() {
+        document.getElementsByClassName('screen_freezer')[0].classList.toggle('display-ib');
+    }
+
+    function mark(index) {
+        if (c_flag[index] == null && activeParents.includes(calculateChildParent(index))) {
+            tick.play()
+            if (flag) {
+                marks[index * 2].classList.add('display-ib')
+            } else {
+                marks[index * 2 + 1].classList.add('display-ib')
+            }
+            c_flag[index] = flag
+            side[0].classList.toggle("filter_50")
+            side[1].classList.toggle("filter_50")
+            checkWinChild(calculateChildParent(index))
+            activateParent(calculateChildIndex(index))
+            flag = !flag
+        }
+    }
+
+    function activateParent(toActivate) {
+        for (i = 0; i < 9; i++) {
+            if (!completedParents.includes(i)) {
+                parents[i].classList.remove("bg_grey")
+                activeParents.pop(i)
+            }
+        }
+        if (toActivate == 'all' || completedParents[toActivate] != null) {
+            for (i = 0; i < 9; i++) {
+                if (!completedParents.includes(i)) {
+                    parents[i].classList.add("bg_grey")
+                    activeParents.push(i)
+                }
+            }
+        } else {
+            parents[toActivate].classList.add("bg_grey")
+            activeParents.push(toActivate)
+        }
+    }
+
+    function markParent(index, flag) {
+        if (completedParents[index] == null) {
+            bell1.play()
+            parent_win[index].classList.add('display-ib')
+            if (flag == true) {
+                p_mark[index * 2].classList.add('display-ib')
+            } else if (flag == false) {
+                p_mark[index * 2 + 1].classList.add('display-ib')
+            }
+            completedParents[index] = flag
+        }
+    }
+
+    function checkWinChild(parent) {
+        i = 9 * parent
+        let win_flag = false
+        if ((c_flag[i] == flag && c_flag[i + 4] == flag && c_flag[i + 8] == flag) ||
+            (c_flag[i + 1] == flag && c_flag[i + 4] == flag && c_flag[i + 7] == flag) ||
+            (c_flag[i + 2] == flag && c_flag[i + 4] == flag && c_flag[i + 6] == flag) ||
+            (c_flag[i + 5] == flag && c_flag[i + 4] == flag && c_flag[i + 3] == flag) ||
+            (c_flag[i] == flag && c_flag[i + 1] == flag && c_flag[i + 2] == flag) ||
+            (c_flag[i] == flag && c_flag[i + 3] == flag && c_flag[i + 6] == flag) ||
+            (c_flag[i + 6] == flag && c_flag[i + 7] == flag && c_flag[i + 8] == flag) ||
+            (c_flag[i + 2] == flag && c_flag[i + 5] == flag && c_flag[i + 8] == flag)) {
+            win_flag = true
+        } else if (c_flag[i] != null && c_flag[i + 1] != null && c_flag[i + 2] != null &&
+            c_flag[i + 3] != null && c_flag[i + 4] != null && c_flag[i + 5] != null &&
+            c_flag[i + 6] != null && c_flag[i + 7] != null && c_flag[i + 8] != null) {
+            win_flag = "draw"
+        }
+        if (win_flag == "draw") {
+            markParent(parent, "draw")
+            return
+        }
+        if (win_flag) {
+            if (flag) {
+                markParent(parent, flag)
+            } else {
+                markParent(parent, flag)
+            }
+            checkWinParent(flag)
+        }
+    }
+
+    function checkWinParent(flag) {
+        let win_flag = false
+        if ((completedParents[0] == flag && completedParents[4] == flag && completedParents[8] == flag) ||
+            (completedParents[1] == flag && completedParents[4] == flag && completedParents[7] == flag) ||
+            (completedParents[2] == flag && completedParents[4] == flag && completedParents[6] == flag) ||
+            (completedParents[5] == flag && completedParents[4] == flag && completedParents[3] == flag) ||
+            (completedParents[0] == flag && completedParents[1] == flag && completedParents[2] == flag) ||
+            (completedParents[0] == flag && completedParents[3] == flag && completedParents[6] == flag) ||
+            (completedParents[6] == flag && completedParents[7] == flag && completedParents[8] == flag) ||
+            (completedParents[2] == flag && completedParents[5] == flag && completedParents[8] == flag)) {
+            win_flag = true
+        } else if (completedParents[0] != null && completedParents[1] != null && completedParents[2] != null &&
+            completedParents[3] != null && completedParents[4] != null && completedParents[5] != null &&
+            completedParents[6] != null && completedParents[7] != null && completedParents[8] != null) {
+            win_flag = "draw"
+        }
+        if (win_flag == "draw") {
+            declareWinner("draw")
+            return
+        }
+        if (win_flag) {
+            if (flag) {
+                declareWinner(flag)
+            } else {
+                declareWinner(flag)
+            }
+        }
+    }
+
+    function declareWinner(flag) {
+        document.getElementsByClassName('screen_freezer')[0].style.display = 'none';
+        document.getElementsByClassName('win_overlay')[0].style.display = 'block';
+        audio.pause();
+        if (flag == "draw") {
+            document.getElementsByClassName('win_emote')[0].style.background = "url('gif/sad_emoji.gif')"
+            document.getElementsByClassName('win_title')[0].innerHTML = "ohh snap !"
+            document.getElementsByClassName('win_gif')[0].style.background = "url('gif/end1.gif')"
+            document.getElementsByClassName('win_player_name')[0].innerHTML = "Game Draw !"
+            return;
+        }
+        if (flag) {
+            document.getElementsByClassName('win_emote')[0].style.background = "url('gif/happy_emoji.gif')"
+            document.getElementsByClassName('win_title')[0].innerHTML = "yayyy !"
+            document.getElementsByClassName('win_gif')[0].style.background = "url('gif/" + end_paths[(Math.floor(Math.random() * (2 - 0 + 1)) + 0) + 3] + "')"
+            document.getElementsByClassName('win_player_name')[0].innerHTML = "Player 1 won !"
+
+        } else {
+            document.getElementsByClassName('win_emote')[0].style.background = "url('gif/happy_emoji.gif')"
+            document.getElementsByClassName('win_title')[0].innerHTML = "yayyy !"
+            document.getElementsByClassName('win_gif')[0].style.background = "url('gif/" + end_paths[(Math.floor(Math.random() * (2 - 0 + 1)) + 0)] + "')"
+            document.getElementsByClassName('win_player_name')[0].innerHTML = "Player 2 won !"
+        }
+    }
+
+    function Start() {
+        document.getElementsByClassName('start_overlay')[0].style.display = 'none';
+        document.getElementsByClassName('screen_freezer')[0].style.display = 'none';
+        audio.loop = true;
+        audio.volume = 0.2;
+        audio.play();
+    }
+
+    function MusicToggle() {
+        audio.muted = muteToggle
+        muteToggle = !muteToggle
+        if (muteToggle) {
+            document.getElementsByClassName('btn-restart')[2].style.background = '#15ab2b';
+            document.getElementsByClassName('btn-restart')[2].style.borderColor = '#0e691c';
+        } else {
+            document.getElementsByClassName('btn-restart')[2].style.background = 'red';
+            document.getElementsByClassName('btn-restart')[2].style.borderColor = "rgb(160, 3, 3)";
+        }
+
+    }
+
+    function calculateChildIndex(index) {
+        return parseInt(index % 9);
+    }
+
+    function calculateChildParent(index) {
+        return parseInt(index / 9);
+    }
+
+    activateParent('all');
+</script>
+
+</html>
